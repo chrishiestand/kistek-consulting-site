@@ -41,7 +41,7 @@ spec:
       containers:
 
         - name: http-kistek-consulting
-          image: chrishiestand/nginx-kistek-consulting-site:2017_09_22_20_39_04
+          image: chrishiestand/nginx-kistek-consulting-site:2017_09_22_20_53_27
           ports:
             - name: http
               containerPort: 1080
