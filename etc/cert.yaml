@@ -1,6 +1,7 @@
 apiVersion: "stable.k8s.psg.io/v1"
 kind: "Certificate"
 metadata:
-  name: "kistek-consulting"
+  name: kistek-consulting
 spec:
-  domain: "kistek.consulting"
+  domain: kistek.consulting
+  provider: http
