@@ -19,6 +19,9 @@ spec:
         - name: dhparam-pem
           secret:
             secretName: dhparam-1.pem
+        - name: tls-kistek-consulting
+          secret:
+            secretName: tls-kistek.consulting
         - name: hostsys
           hostPath:
             path: /sys
@@ -30,6 +33,10 @@ spec:
           securityContext:
             privileged: true
           command: ["/bin/sh"]
+          resources:
+            requests:
+              cpu: 1m
+              memory: 1Mi
           args:
             - -c
             - sysctl -w net.core.somaxconn=8192
@@ -41,7 +48,7 @@ spec:
       containers:
 
         - name: http-kistek-consulting
-          image: chrishiestand/nginx-kistek-consulting-site:2017_09_22_20_53_27
+          image: chrishiestand/nginx-kistek-consulting-site:2017_09_23_01_29_21
           ports:
             - name: http
               containerPort: 1080
@@ -55,6 +62,9 @@ spec:
           - name: dhparam-pem
             readOnly: true
             mountPath: /etc/nginx/ssl
+          - name: tls-kistek-consulting
+            readOnly: true
+            mountPath: /opt/tls/kistek.consulting
           readinessProbe:
             httpGet:
               path: /
