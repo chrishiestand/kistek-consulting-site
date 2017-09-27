@@ -778,10 +778,6 @@ h6 {
 /* 4. Banner */
 /*------------------------------------------------------------------------------------------*/
 
-#banner {
-    background-size: cover;
-}
-
 #banner-content.row {
     padding-top: 170px;
     padding-bottom: 100px;
@@ -2326,7 +2322,3 @@ blockquote {
     }
 
 }
-
-
-
-

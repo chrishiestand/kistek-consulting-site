@@ -124,8 +124,11 @@ a:hover, #header.nav-solid nav a:hover {
 /* Banner Background and Text Colors */
 
 #banner {
+    /*
+    E8 Petrie projection by <https://commons.wikimedia.org/wiki/User:Jgmoxness> under license CC BY-SA 3.0
+     */
     background: url("../images/banner-images/banner.jpg") no-repeat center top;
-    background-size:cover;
+    background-size: contain;
 }
 
 
