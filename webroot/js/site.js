@@ -1,5 +1,20 @@
 "use strict";
 
+function handleContactEvent(event) {
+
+	let environment = 'dev'
+
+	if (window.location && window.location.host && window.location.host === 'kistek.consulting') {
+		environment = 'prod'
+	}
+
+	const eventCategory =  'contact'
+	const eventAction = $(event.srcElement).attr('data-contact-source')
+	const eventLabel = environment
+
+	ga('send', 'event', eventCategory, eventAction, eventLabel)
+}
+
 $(document).ready(function () {
 
 	/*ScrollUp*/
@@ -41,8 +56,20 @@ $(document).ready(function () {
 		}
 	});
 
-});
 
+	$('.button.contact').on('click', (event) => {
+
+		$('#contact .section-title').addClass('animated lightSpeedIn').delay(1000).queue(function() {
+			$(this).removeClass('animated lightSpeedIn').dequeue()
+		})
+
+		handleContactEvent(event)
+	})
+
+	$('a.contact').on('click', (event) => {
+		handleContactEvent(event)
+	})
+});
 
 /* Preloader and animations */
 $(window).load(function () { // makes sure the whole site is loaded
