@@ -87,4 +87,7 @@ $(window).load(function () { // makes sure the whole site is loaded
 		$(window).enllax();
 	}
 
+	// google analytics - why can't this go in head?
+	ga('create', 'UA-107053932-1', 'auto')
+
 });
