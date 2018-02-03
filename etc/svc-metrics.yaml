@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: default
+  labels:
+    app: kistek-consulting
+    k8s-app: kistek-consulting
+  name: kistek-consulting
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+  - name: metrics
+    port: 9427
+    targetPort: metrics
+    protocol: TCP
+  selector:
+    name: http-kistek-consulting
